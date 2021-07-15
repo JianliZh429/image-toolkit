@@ -2,8 +2,8 @@
 Tools to process images, implemented by opencv
 
 ## Content
-### [License photo process](./cli/license_photo.py)
-To extract the person area with the given image and output the license photo with specified size and three background color
+### [License photo processing](./cli/license_photo.py)
+To extract the person area from the given image and output the license photo with specified size and three background color
 - to show the help information
     ```shell
     python cli/license_photo.py --help 
