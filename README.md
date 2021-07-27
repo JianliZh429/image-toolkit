@@ -12,3 +12,10 @@ To extract the person area from the given image and output the license photo wit
     ```shell
     python cli/license_photo.py --image_file $file_path --out_dir $output_dir
     ```
+    
+### [Resize iamge](./cli/resize.py)
+To resize the image to specific size, if only width or height is given, the resize will keep the original ratio of width to height, if both width and height are given, the resize will resize to the desired size.
+
+```shell
+python cli/resize.py --image_file $file_path --out_dir $output_dir --width 800
+```
