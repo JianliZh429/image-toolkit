@@ -17,7 +17,6 @@ def cv2_save(img, fname, out_dir="./output", suffix="", ext="jpeg"):
         os.mkdir(out_dir)
     suffix = int(time.time()) if not suffix else suffix
     filename = os.path.join(out_dir, "{}_{}.{}".format(fname, suffix, ext))
-    print(filename)
     cv2.imwrite(filename, img)
 
 
