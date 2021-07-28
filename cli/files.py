@@ -3,7 +3,7 @@ import time
 import cv2
 
 
-def cv2_save(img, fname, out_dir="./output"):
+def cv2_save(img, fname, out_dir="./output", ext="jepg"):
     """save img to output directory
 
     Args:
@@ -13,7 +13,7 @@ def cv2_save(img, fname, out_dir="./output"):
     """
     if not os.path.exists(out_dir):
         os.mkdir(out_dir)
-    filename = os.path.join(out_dir, "{}_{}.jpg".format(fname, int(time.time())))
+    filename = os.path.join(out_dir, "{}_{}.{}".format(fname, int(time.time()), ext))
     cv2.imwrite(filename, img)
 
 

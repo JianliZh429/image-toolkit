@@ -2,7 +2,7 @@
 Tools to process images, implemented by opencv
 
 ## Content
-### [License photo processing](./cli/license_photo.py)
+### [License photo](./cli/license_photo.py)
 To extract the person area from the given image and output the license photo with specified size and three background color
 - to show the help information
     ```shell
@@ -19,3 +19,11 @@ To resize the image to specific size, if only width or height is given, the resi
 ```shell
 python cli/resize.py --image_file $file_path --out_dir $output_dir --width 800
 ```
+
+### [Sketching](./cli/sketch.py)
+To convert an image to sketch, you might want to use the sketch as your avatar.
+
+```shell
+python cli/sketch.py --image_file $file_path --out_dir $output_dir
+```
+
