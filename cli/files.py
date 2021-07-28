@@ -3,17 +3,21 @@ import time
 import cv2
 
 
-def cv2_save(img, fname, out_dir="./output", ext="jepg"):
+def cv2_save(img, fname, out_dir="./output", suffix="", ext="jpeg"):
     """save img to output directory
 
     Args:
         img ([cv2 image array]): [cv2 image]
         fname ([str]): [filename without prefix and extension]
         out_dir (str, optional): [output directory]. Defaults to "./output".
+        suffix (str, optional): [suffix]. suffix to the image file
+        ext (str, optional): [ext]. extension of image file to use, such as "png" or "jpg"
     """
     if not os.path.exists(out_dir):
         os.mkdir(out_dir)
-    filename = os.path.join(out_dir, "{}_{}.{}".format(fname, int(time.time()), ext))
+    suffix = int(time.time()) if not suffix else suffix
+    filename = os.path.join(out_dir, "{}_{}.{}".format(fname, suffix, ext))
+    print(filename)
     cv2.imwrite(filename, img)
 
 
