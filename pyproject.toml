@@ -1,9 +1,29 @@
 [tool.poetry]
 name = "image-toolkit"
 version = "0.1.0"
-description = "Image processing tools"
+description = "Image processing tools using OpenCV"
 authors = ["DewMaple <dew.maple@gmail.com>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/dew-maple/image-toolkit"
+repository = "https://github.com/dew-maple/image-toolkit"
+keywords = ["image-processing", "opencv", "cli", "photo", "resize", "sketch"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+]
+
+[tool.poetry.scripts]
+image-toolkit = "cli.main:cli"
 
 [tool.black]
 line-length = 120
@@ -21,10 +41,25 @@ opencv-python = "^4.5.2"
 opencv-contrib-python = "^4.5.2"
 click = "^8.0.1"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 black = "^21.6b0"
 flake8 = "^3.9.2"
+pytest = "^7.0"
+pytest-cov = "^4.0"
+mypy = "^1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --cov=cli --cov-report=term-missing"
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
