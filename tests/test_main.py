@@ -41,4 +41,4 @@ class TestMainCLI:
         result = runner.invoke(cli, ["license-photo", "--help"])
         assert result.exit_code == 0
         assert "--image_file" in result.output
-        assert "--tz" in result.output
+        assert "--country" in result.output

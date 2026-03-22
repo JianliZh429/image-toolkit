@@ -1,6 +1,6 @@
 # Image Toolkit
 
-[![CI](https://github.com/dew-maple/image-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/dew-maple/image-toolkit/actions/workflows/ci.yml)
+[![CI](https://github.com/JianliZh429/image-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/JianliZh429/image-toolkit/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
@@ -74,19 +74,49 @@ python cli/license_photo.py --image_file portrait.jpg
 Generate ID-style photos with different background colors (blue, red, white).
 
 ```bash
-image-toolkit license-photo --image_file portrait.jpg --out_dir ./output --tz 1
+# ISO standard (35x45mm)
+image-toolkit license-photo --image_file portrait.jpg --out_dir ./output
+
+# US passport (2x2 inches / 600x600px)
+image-toolkit license-photo --image_file portrait.jpg --country usa --doc-type passport
+
+# UK visa (35x45mm)
+image-toolkit license-photo --image_file portrait.jpg --country uk --doc-type visa
+
+# Using common size alias
+image-toolkit license-photo --image_file portrait.jpg --size us
+
+# Legacy inch-based size
+image-toolkit license-photo --image_file portrait.jpg --inch 1
+
+# Custom dimensions
+image-toolkit license-photo --image_file portrait.jpg --width 600 --height 600
+
+# List available countries
+image-toolkit license-photo --list-countries
+
+# List document types for a country
+image-toolkit license-photo --list-types usa
 ```
 
 **Options:**
-- `--image_file`: Path to input image (required)
+- `--image_file`: Path to input image (required for processing)
 - `--out_dir`: Output directory (default: `./output`)
-- `--tz`: Size option - 1 for 1 inch (295x413), 2 for 2 inches (413x579) (default: 1)
+- `-c, --country`: Country code (e.g., `usa`, `uk`, `jp`, `cn`, `de`, `fr`). Default: `iso`
+- `-d, --doc-type`: Document type (`passport`, `visa`, `id_card`, `iso_216`). Default: `iso_216`
+- `-s, --size`: Common size alias (`iso`, `us`, `eu`, `uk`, `jp`, `cn`). Overrides country/doc-type
+- `-i, --inch`: Legacy inch-based size (1 or 2). Overrides other size options
+- `--width`, `--height`: Custom dimensions in pixels
+- `--list-countries`: List all available country codes
+- `--list-types`: List document types for a specific country
 - `--verbose`: Show intermediate results (press ESC to close)
 
 **Output:** Three images with different background colors:
-- `{tz}_blue.jpg`
-- `{tz}_red.jpg`
-- `{tz}_white.jpg`
+- `blue.jpg` - Blue background (RGB: 61, 140, 221)
+- `red.jpg` - Red background (RGB: 0, 0, 255)
+- `white.jpg` - White background (RGB: 255, 255, 255)
+
+**Supported Countries:** USA, Canada, UK, Germany, France, Spain, Italy, Netherlands, Sweden, Poland, Russia, China, Japan, South Korea, India, Singapore, Thailand, Vietnam, Philippines, Malaysia, Indonesia, UAE, Saudi Arabia, Israel, Turkey, Australia, New Zealand, Brazil, Argentina, Chile, Colombia, South Africa, Egypt, Nigeria, Kenya, and ISO standards.
 
 ---
 
