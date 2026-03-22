@@ -15,12 +15,13 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Multimedia :: Graphics :: Graphics Conversion",
 ]
+package-mode = false
 
 [tool.poetry.scripts]
 image-toolkit = "cli.main:cli"
@@ -37,13 +38,13 @@ extend-exclude = '''
 
 [tool.poetry.dependencies]
 python = "^3.9"
-opencv-python = "^4.5.2"
-opencv-contrib-python = "^4.5.2"
+opencv-python = "^4.8.0"
+opencv-contrib-python = "^4.8.0"
 click = "^8.0.1"
 
 [tool.poetry.group.dev.dependencies]
-black = "^21.6b0"
-flake8 = "^3.9.2"
+black = "^23.0"
+flake8 = "^6.0"
 pytest = "^7.0"
 pytest-cov = "^4.0"
 mypy = "^1.0"
