@@ -1,7 +1,7 @@
 # Image Toolkit
 
 [![CI](https://github.com/JianliZh429/image-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/JianliZh429/image-toolkit/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 A collection of image processing tools implemented using OpenCV. Process images from the command line with ease.
@@ -275,7 +275,7 @@ image-toolkit/
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.9+
 - OpenCV (opencv-python)
 - Click
 
