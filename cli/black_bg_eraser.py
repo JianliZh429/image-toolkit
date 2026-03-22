@@ -50,11 +50,12 @@ def erase(
         click.echo(f"Error: Failed to read image: {image_file}", err=True)
         raise SystemExit(1)
 
-    height, width = im.shape[:2]  # type: ignore[union-attr]
+    assert im is not None
+    height, width = im.shape[:2]
 
     # Apply margin crop if specified
     if margin > 0:
-        im = im[margin : height - margin, margin : width - margin]  # type: ignore[union-attr]
+        im = im[margin : height - margin, margin : width - margin]
         height, width = im.shape[:2]
 
     gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
@@ -78,7 +79,7 @@ def erase(
     contour = max(contours, key=cv2.contourArea)  # type: ignore[call-overload]
 
     # Replace background with white
-    img = im.copy()  # type: ignore[union-attr]
+    img = im.copy()
     for i in range(height):
         for j in range(width):
             if cv2.pointPolygonTest(contour, (j, i), True) <= 0:
