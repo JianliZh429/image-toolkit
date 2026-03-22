@@ -36,7 +36,7 @@ extend-exclude = '''
 '''
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.9"
 opencv-python = "^4.5.2"
 opencv-contrib-python = "^4.5.2"
 click = "^8.0.1"
