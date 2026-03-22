@@ -1,44 +1,68 @@
+"""Utility functions for file operations and image saving."""
+
 import os
 import time
+
 import cv2
+import numpy as np
 
 
-def cv2_save(img, fname, out_dir="./output", suffix="", ext="jpeg"):
-    """save img to output directory
-
-    Args:
-        img ([cv2 image array]): [cv2 image]
-        fname ([str]): [filename without prefix and extension]
-        out_dir (str, optional): [output directory]. Defaults to "./output".
-        suffix (str, optional): [suffix]. suffix to the image file
-        ext (str, optional): [ext]. extension of image file to use, such as "png" or "jpg"
-    """
-    if not os.path.exists(out_dir):
-        os.mkdir(out_dir)
-    suffix = int(time.time()) if not suffix else suffix
-    filename = os.path.join(out_dir, "{}_{}.{}".format(fname, suffix, ext))
-    cv2.imwrite(filename, img)
-
-
-def filename(file_path):
-    """parse full path file to filename, without prefix, with extension
+def cv2_save(
+    img: np.ndarray,
+    fname: str,
+    out_dir: str = "./output",
+    suffix: str = "",
+    ext: str = "jpeg",
+) -> str:
+    """Save image array to output directory.
 
     Args:
-        file_path ([str]): [full path filename]
+        img: OpenCV image array (numpy ndarray).
+        fname: Filename without extension.
+        out_dir: Output directory path. Defaults to "./output".
+        suffix: Suffix to append to filename. If empty, uses timestamp.
+        ext: Image file extension (e.g., "jpeg", "png"). Defaults to "jpeg".
 
     Returns:
-        [str]: [filename with extension]
+        Full path to the saved image file.
+
+    Raises:
+        OSError: If the output directory cannot be created.
+        cv2.error: If the image cannot be written.
     """
-    return file_path.split(os.sep)[-1]
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir, exist_ok=True)
+
+    if not suffix:
+        suffix = str(int(time.time()))
+
+    filename = os.path.join(out_dir, f"{fname}_{suffix}.{ext}")
+    cv2.imwrite(filename, img)
+
+    return filename
 
 
-def fname(file_path):
-    """parse a full path filename to fname, without prefix and extension
+def filename(file_path: str) -> str:
+    """Parse full path to filename with extension.
 
     Args:
-        file_path ([str]): [full path filename]
+        file_path: Full path to the file.
+
+    Returns:
+        Filename with extension (e.g., "image.jpg").
+    """
+    return os.path.basename(file_path)
+
+
+def fname(file_path: str) -> str:
+    """Parse full path to filename without extension.
+
+    Args:
+        file_path: Full path to the file.
+
+    Returns:
+        Filename without extension (e.g., "image" from "/path/to/image.jpg").
     """
     filename_ = filename(file_path)
-    idx = filename_.rindex(os.extsep)
-
-    return filename_[0:idx]
+    name, _ = os.path.splitext(filename_)
+    return name
