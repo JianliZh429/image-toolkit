@@ -56,7 +56,7 @@ def erase(
     # Apply margin crop if specified
     if margin > 0:
         im = im[margin : height - margin, margin : width - margin]
-        height, width = im.shape[:2] # type: ignore[union-attr]
+        height, width = im.shape[:2]  # type: ignore[union-attr]
 
     gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 
