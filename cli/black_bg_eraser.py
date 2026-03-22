@@ -4,6 +4,7 @@ import os
 
 import click
 import cv2
+import numpy as np
 
 from cli.files import cv2_save, fname
 
@@ -50,8 +51,7 @@ def erase(
         click.echo(f"Error: Failed to read image: {image_file}", err=True)
         raise SystemExit(1)
 
-    assert im is not None
-    height, width = im.shape[:2]
+    height, width = im.shape[:2]  # type: ignore[union-attr]
 
     # Apply margin crop if specified
     if margin > 0:
@@ -79,7 +79,7 @@ def erase(
     contour = max(contours, key=cv2.contourArea)  # type: ignore[call-overload]
 
     # Replace background with white
-    img = im.copy()
+    img = im.copy()  # type: ignore[union-attr]
     for i in range(height):
         for j in range(width):
             if cv2.pointPolygonTest(contour, (j, i), True) <= 0:
