@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "image-toolkit"
-version = "0.1.0"
+version = "0.1.1"
 description = "Image processing tools using OpenCV"
-authors = ["DewMaple <dew.maple@gmail.com>"]
+authors = ["JianliZh429 <jianli.zh42g@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/dew-maple/image-toolkit"
-repository = "https://github.com/dew-maple/image-toolkit"
+homepage = "https://github.com/JianliZh429/image-toolkit"
+repository = "https://github.com/JianliZh429/image-toolkit"
 keywords = ["image-processing", "opencv", "cli", "photo", "resize", "sketch"]
 classifiers = [
     "Development Status :: 3 - Alpha",

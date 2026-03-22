@@ -335,6 +335,6 @@ image-toolkit sketch --help
 
 ## Support
 
-- Report bugs: [GitHub Issues](https://github.com/dew-maple/image-toolkit/issues)
+- Report bugs: [GitHub Issues](https://github.com/JianliZh429/image-toolkit/issues)
 - Documentation: [README.md](../README.md)
 - Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)

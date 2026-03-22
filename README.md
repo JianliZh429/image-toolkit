@@ -20,7 +20,7 @@ A collection of image processing tools implemented using OpenCV. Process images 
 
 ```bash
 # Clone the repository
-git clone https://github.com/dew-maple/image-toolkit.git
+git clone https://github.com/JianliZh429/image-toolkit.git
 cd image-toolkit
 
 # Create virtual environment (recommended)
@@ -205,7 +205,7 @@ image-toolkit cartoonize --image_file photo.jpg --bilateral_filters 5
 
 ```bash
 # Clone and setup
-git clone https://github.com/dew-maple/image-toolkit.git
+git clone https://github.com/JianliZh429/image-toolkit.git
 cd image-toolkit
 poetry install
 
